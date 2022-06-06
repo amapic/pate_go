@@ -1,0 +1,35 @@
+.nav-item{
+    cursor:pointer;
+}
+
+.nav-item:not(.nav_item_selected)::after {
+	content: '';
+	position: absolute;
+	bottom: -20px;
+	
+	width: 4%;
+	height: 3px;
+    align-items: center;
+	background-color: #ff6e14;
+	opacity: 0;
+	transition: opacity 300ms, transform 300ms;
+}
+
+.nav-item:hover::after,
+.nav-item:focus::after {
+	opacity: 1;
+	transform: translate3d(0, 0.2em, 0);
+}
+
+
+/* Scale from center */
+.nav-item::after {
+	opacity : 1;
+	transform: scale(0);
+	transform-origin: center;
+}
+
+.nav-item:hover::after,
+.nav-item:focus::after{
+	transform: scale(1);
+}

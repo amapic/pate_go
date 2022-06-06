@@ -1,0 +1,329 @@
+$base-color: #8884d8;
+// $spacers:4px;
+// @for $i from 1 through 3 {
+//   .aaa>div:nth-child( #{$i}) {
+//     background-color: lighten($base-color, $i * 5%)!important;
+//   }
+// }
+@for $i from 30 through 0 {
+  // .recharts-bar-rectangles>g:nth-child( #{$i}) {
+  //   fill: lighten($base-color, $i * 3%)!important;
+  // }
+}
+// @for $i from 1 through 30 {
+//   .animation>.recharts-bar-rectangles>g:nth-child( #{$i}) {
+//     // fill: lighten($base-color, $i * 3%)!important;
+//     animation: sampleanimation3 0.8s forwards;
+//     animation-delay:$i*0.01s;
+//     transform-origin: bottom;
+//   }
+// }
+
+@keyframes sampleanimation2 {
+  from {
+    // transform: scale(1);
+    height:100%
+  }
+  50% {
+    // transform: scale(1, 0.9);
+    height:50%
+  }
+  to {
+    // transform: scale(1);
+    height:100%
+  }
+}
+
+@keyframes sampleanimation3 {
+  from {
+    transform: scaleX(1);
+  }
+  50% {
+    transform: scaleX(0.8)
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+h4 {
+  margin-top: 0.3rem !important;
+}
+
+.aa {
+  display: initial;
+}
+
+// .planetwrap {
+
+//   animation: splash 1s normal forwards ease-in-out;
+//   // -webkit-animation: splash 0.5s normal forwards;
+//   // -moz-animation:    splash 0.5s normal forwards;
+//   // -o-animation:      splash 0.5s normal forwards;
+// }
+
+p {
+  font-size: 1rem;
+}
+
+#container_global {
+  // max-width: 80rem !important;
+  // padding-left: 0!important;
+  // padding-right: 0!important;
+}
+.container-xxl {
+  // max-width: 80rem !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+#table-liste-planete {
+  // --bs-gutter-y:var(--bs-gutter-y)
+  margin: 0 0 0 0 !important;
+}
+
+//tableau de liste des planètes
+
+#table-liste-planete td,
+th {
+  text-align: center;
+  padding: 0.5rem;
+}
+
+#table-liste-planete {
+  margin: 0 0 0 0;
+}
+
+.svg-container {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%;
+  vertical-align: middle;
+  overflow: hidden;
+}
+
+.svg-content {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#frise-container {
+  margin-top: 2em;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  // justify-items: space-around;
+  height: 50px !important;
+}
+
+.frise-item,
+.frise-item-first {
+  display: flex;
+
+  justify-content: flex-end;
+  align-content: center;
+}
+
+.frise-item div {
+  margin: auto !important;
+}
+
+.table-concept {
+  flex-direction: row;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  width: 100%;
+}
+
+.table-concept tbody {
+  cursor: pointer;
+}
+
+.table-concept td:hover {
+  border-color: #000 !important;
+}
+
+.rowSelected {
+  background-color: rgb(136, 132, 216) !important;
+  border-color: rgb(136, 132, 216) !important;
+  // border: 2px solid;
+}
+
+.table-concept .col {
+  text-align: center;
+  margin: 1rem;
+}
+
+.table-concept td,
+th {
+  padding: 0.5rem;
+}
+
+thead {
+  color: white;
+  background-color: #242526;
+  height: fit-content;
+  text-align: center;
+}
+
+.table-concept .row {
+  border: 1px solid;
+}
+
+.table-liste-planete:nth-child(2n) {
+  border-color: #fff;
+}
+
+.table-liste-planete:nth-child(2n + 1) {
+  border-color: #ccc;
+  background: #ccc;
+}
+
+.table-row:nth-child(2n) {
+  border-color: #fff;
+}
+
+.table-row:nth-child(2n + 1) {
+  border-color: #ccc;
+  background: #ccc;
+}
+
+.table-row:hover {
+  // border-color: #ccc;
+  background: #c3c1eb;
+  // opacity:0.5;
+}
+
+.table-row-collapse {
+  background: #f00 !important;
+}
+
+//classe des svg
+
+@keyframes splash {
+  from {
+    // scale: 1;
+    // transform: scale(0, 0);
+    transform: scale(1);
+  }
+  50% {
+    // scale: 10;
+    transform: scale(1.5);
+  }
+  to {
+    // scale: 3;
+    transform: scale(1);
+  }
+}
+
+.planetwrap:hover {
+  transform: scale(1.2);
+}
+// .planetwrap {
+//   transition: scale 0.1s;
+//   transform-origin: 50% 50%;
+// }
+
+.svgparent {
+  overflow: visible;
+}
+
+.planetwrap {
+  // animation: splash 3s normal forwards ease-in-out;
+  animation-name: splash;
+  animation-duration: 0.5s;
+  animation-iteration-count: 2;
+  transform-origin: 50% 50%;
+}
+
+.recharts-rectangle.animation {
+  // animation: sampleanimation 2s forwards;
+  // transform-origin: 50% 0%;
+  // animation: bounce-7;
+  // animation-timing-function: cubic-bezier(0.28, 0.84, 0.42, 1);
+}
+
+@keyframes sampleanimation2 {
+  from {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1, 0.9);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes sampleanimation {
+  70% {
+    transform: translateY(0%);
+    padding-bottom: 7px;
+  }
+  80% {
+    transform: translateY(-15%);
+  }
+  90% {
+    transform: translateY(0%);
+    padding-bottom: 8px;
+  }
+  95% {
+    transform: translateY(-7%);
+  }
+  97% {
+    transform: translateY(0%);
+    padding-bottom: 9px;
+  }
+  99% {
+    transform: translateY(-3%);
+  }
+  100% {
+    transform: translateY(0);
+    padding-bottom: 9px;
+    opacity: 1;
+  }
+}
+
+@keyframes bounce-7 {
+  0% {
+    transform: scale(1, 1) translateY(0);
+  }
+  10% {
+    transform: scale(1.1, 0.9) translateY(0);
+  }
+  30% {
+    transform: scale(0.9, 1.1) translateY(-100px);
+  }
+  50% {
+    transform: scale(1.05, 0.95) translateY(0);
+  }
+  57% {
+    transform: scale(1, 1) translateY(-7px);
+  }
+  64% {
+    transform: scale(1, 1) translateY(0);
+  }
+  100% {
+    transform: scale(1, 1) translateY(0);
+  }
+}
+
+.card_perso {
+  background-color: #fff;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08), 0 3px 6px rgba(0, 0, 0, 0.13);
+  // transition: all 0.4s ease;
+  // display:flex;
+  // flex-direction: column;
+  
+  padding: 20px;
+  
+}
+// .card_perso:hover {
+//   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.08), 0 10px 10px rgba(0, 0, 0, 0.13);
+//   border-radius: 10px;
+// }
