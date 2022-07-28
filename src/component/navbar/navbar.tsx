@@ -16,6 +16,8 @@ import plus from "../../img/bon_coin/plus.svg";
 import shortid from 'shortid'
 import { motion, useViewportScroll, useAnimation, useTransform } from "framer-motion";
 
+import styled, { keyframes } from "styled-components";
+
 export function Navbar(props: any) {
   const { scrollY } = useViewportScroll();
   const controls = useAnimation();
@@ -33,40 +35,18 @@ export function Navbar(props: any) {
 
   }, []);
 
+  const WrapperHeader = styled.div`
+  background-color: #000;
+  height: 60px;
+  padding:10px 20px 20px 10px;
+  color:white;
+  font-family:"Gilda Display", serif;
+`;
 
   return (
-    <motion.div
-      key={shortid.generate()}
-      initial="enhaut"
-      animate={controls}
-      variants={{
-        enhautPlanet: {
-          height: '80px',
-          position: 'sticky',
-          top: '0px',
-          zIndex: 7
-        },
-        enhaut: {
-          height: '40px',
-          position: 'sticky',
-          top: '0px',
-          zIndex: 7
-        },
-        pasenhaut: {
-          height: '40px',
-          position: 'sticky',
-          top: '0px',
-          zIndex: 7
-        }
-      }}
-      transition={{ type: "spring", duration: 1 }}
-
-    >
-      <nav className="">
-
-        {props.children}
-      </nav>
-    </motion.div>
+    <WrapperHeader>
+      Pâté
+    </WrapperHeader>
 
   );
 }
@@ -78,10 +58,6 @@ export function NavItem(props: any) {
   const router = useRouter()
 
 
-  // let hover: string = ""
-  // let hover_planet: string = ""
-  // hover_planet = router.pathname === '/planet' ? "nav-item noselect nav_item_selected" : "nav-item noselect"
-  // hover = router.pathname === '/planet' ? "nav-item noselect" : "nav-item noselect nav_item_selected"
   return (
     // <div className="fixed-top">
       <>
