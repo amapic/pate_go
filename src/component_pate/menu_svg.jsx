@@ -17,96 +17,16 @@ const circlePulse = () => keyframes`
 }
 `;
 
-const ButtonC = styled.button`
-  fill: yellow;
-  transition: fill 2s;
-  &:hover {
-    .button {
-      display: none;
-    }
-  }
-`;
 
-const Cacd = styled.div`
-  fill: yellow;
-  transition: fill 2s;
-  font-size: 50;
-  &:hover {
-    color: blue;
-  }
-`;
 
 export default function MenuSvg(props) {
   var strokeWidth = 1;
 
-  const StyledLine = styled.line`
-  stroke:red;
-&:hover {
-    stroke:blue;
-    transform="translate(5)";
-  }
-`;
-
-  const StyledInnerLine = styled.line`
-    &:hover {
-      transform: translate(5px);
-      transition-duration: 4s;
-    }
-    // //   &:hover {
-    // //     transform="translate(50)";
-    // //    //animation: ${(props) => circlePulse()}
-    // //     // infinite 4s linear;
-    //   }
-  `;
 
   return (
     <>
       <div style={{ visibility: props.menuVisibility ? "visible" : "hidden" }}>
-        {/* <div style={{ margin: "0px 0 0 22px", width: "100%" }}>
-          <>
-            <svg width="100%" height="50" viewBox="0 0 100 50">
-              <StyledInnerLine
-                x1="1"
-                y1="10"
-                x2="1"
-                y2="15"
-                stroke="black"
-                stroke-dasharray="1,200"
-                stroke-dashoffset="0"
-                strokeWidth={strokeWidth}
-              />
-
-              <StyledInnerLine
-                x1="1"
-                y1="15"
-                x2="98%"
-                y2="15"
-                stroke="black"
-                stroke-dasharray="2"
-                stroke-dashoffset="0"
-              />
-
-              <line
-                x1="98%"
-                y1="15"
-                x2="98%"
-                y2="10"
-                stroke="black"
-                strokeWidth={strokeWidth}
-              />
-              <text
-                alignmentBaseline="middle"
-                textAnchor="middle"
-                fontFamily="Roboto, Helvetica, Arioal, sans-serif"
-                x="50%"
-                y="28"
-                fill="black"
-              >
-                AA
-              </text>
-            </svg>
-          </>
-        </div> */}
+        
         <div onClick={props.onMouseDown}>
           <svg
             version="1.1"
@@ -161,39 +81,7 @@ export default function MenuSvg(props) {
             </g>
           </svg>
         </div>
-        {/* <div> */}
-        <svg
-          x="0px"
-          y="0px"
-          viewBox="0 0 407.4 407.4"
-          // style="enable-background:new 0 0 407.4 407.4;"
-          width="27.5"
-          height="27.5"
-          className="ee"
-        >
-          <polygon
-            // class="st0"
-            points="407.4,112.8 386.3,91.6 203.7,273.5 21.2,91.6 0,112.8 203.7,315.9 "
-            fill="#000"
-          ></polygon>
-        </svg>
-        <svg
-          x="0px"
-          y="0px"
-          viewBox="0 0 407.4 407.4"
-          // style="enable-background:new 0 0 407.4 407.4;"
-          width="27.5"
-          height="27.5"
-          className="ee"
-        >
-          <polygon 
-            
-            points="407.4,112.8 386.3,91.6 203.7,273.5 21.2,91.6 0,112.8 203.7,315.9 "
-            fill="#000"
-            transform="rotate(180 203 203)"
-          ></polygon>
-        </svg>
-        {/* </div> */}
+
       </div>
     </>
   );

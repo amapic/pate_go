@@ -270,19 +270,21 @@ text {
        
   width: 20vw;
   height: 100vh;
+  color:#FFF;
 }   
 
 #flyoutMenu {
   width: 20vw;
-  height: 100vh;
-  background-color: #FFE600;
-  position: fixed;
+  height: 90vh;
+  background-color: #000;
+  // position: fixed;
   top: 0;
   left: 0;
   transition: transform .3s
               cubic-bezier(0, .52, 0, 1);
-  overflow: scroll;
+  // overflow: scroll;
   z-index: 1000;
+  font-family:"Gilda Display", serif;
 }
  
 #flyoutMenu.hide {
@@ -295,9 +297,11 @@ text {
 }
  
 #flyoutMenu h2 a {
-  color: #333;
+  color: #fff;
   margin-left: 15px;
+  margin-top:80px;
   text-decoration: none;
+  font-size: 25px;
 }
  
 #flyoutMenu h2 a:hover {
@@ -386,6 +390,10 @@ text {
   animation-delay: 0.7s;
   animation-iteration-count: infinite;
   // animation-direction: reverse;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
 
 

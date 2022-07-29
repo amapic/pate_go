@@ -3,150 +3,78 @@ import * as React from 'react';
 import Image from 'next/image'
 import Router, { useRouter } from 'next/router';
 import 'bootstrap/dist/css/bootstrap.css';
-import github from "../../img/bon_coin/github.svg";
-import loupe from "../../img/bon_coin/loupe.svg";
-import bon_coin from "../../img/bon_coin/bon_coin.svg";
-import menu from "../../img/bon_coin/menu.svg";
-import perso from "../../img/bon_coin/perso.svg";
-import coeur from "../../img/bon_coin/coeur.svg";
-import msg from "../../img/bon_coin/msg.svg";
-import cloche from "../../img/bon_coin/cloche.svg";
-import plus from "../../img/bon_coin/plus.svg";
-
-import shortid from 'shortid'
-import { motion, useViewportScroll, useAnimation, useTransform } from "framer-motion";
+import Link from 'next/link'
+// 
 
 import styled, { keyframes } from "styled-components";
 
 export function Navbar(props: any) {
-  const { scrollY } = useViewportScroll();
-  const controls = useAnimation();
 
-  useEffect(() => {
-    scrollY.onChange(v => {
-
-      if (v > 0) {
-        controls.start("pasenhaut")
-      }
-      if (v === 0) {
-        controls.start("enhaut")
-      }
-    });
-
-  }, []);
 
   const WrapperHeader = styled.div`
   background-color: #000;
   height: 60px;
   padding:10px 20px 20px 10px;
   color:white;
+  display:flex;
+  flex-direction:row;
+  justify-content: space-between;
   font-family:"Gilda Display", serif;
+  width:100%;
+  height:10%;
+`;
+
+const WrapMenu = styled.div`
+  background-color: #000;
+  height: 60px;
+  padding:10px 20px 20px 10px;
+  color:white;
+  display:flex;
+  flex-direction:row;
+  justify-content: flex-end;
+  font-family:"Gilda Display", serif;
+  width:100%;
+  height:10%;
+`;
+
+const Titre = styled.div`
+  width: 20vw;
+  font-size:30px;
+  margin:0;
+  text-align:center;
+`;
+
+const Menu = styled.div`
+  /* position:absolute; */
+  right:10px;
+  width:10%;
+  font-size:16px;
+  text-decoration:none;
 `;
 
   return (
+    <>
     <WrapperHeader>
-      Pâté
+      <Titre>Pâté</Titre>
+      <WrapMenu>
+      <Link href="/test">
+        <Menu className="cursor-pointer" >
+          {/* <div class> */}
+          Pâté
+          {/* </div> */}
+        </Menu>
+        </Link>
+        <Menu>
+          Pâté en croute
+          </Menu>
+        <Menu>
+          Pâté bio
+          </Menu>
+      </WrapMenu>
     </WrapperHeader>
+    </>
 
   );
 }
 
 
-
-export function NavItem(props: any) {
-  const [open, setOpen] = React.useState(false);
-  const router = useRouter()
-
-
-  return (
-    // <div className="fixed-top">
-      <>
-      <div style={{maxWidth:"1066px", height: "60px" }} className="d-flex flex-row justify-content-between m-auto">
-        <div id="bloc1" className="d-flex flex-row justify-content-center align-items-center">
-          <div style={{ width: "170px" }} className="d-flex flex-column justify-content-center align-items-left">
-            <Image
-              width={140}
-              height={24}
-              src={bon_coin} />
-          </div>
-          <div>
-            <div style={{ height: "40px", }} className="p-10 orange justify-content-center align-items-center border rounded d-flex flex-row">
-              {/* <div className=""> */}
-              <Image
-                width={24}
-                height={24}
-                src={plus} />
-              {/* </div> */}
-              <div className="ps-2" style={{ color: "#fff", fontSize: "14px" }} >
-                Déposer une annonce
-              </div>
-            </div>
-            {/* <div className="img_navbar">
-              Déposer une annonce
-            </div> */}
-          </div>
-          <div style={{ padding: "0 10px 0 10px" }} className="h-100 d-flex flex-row justify-content-center align-items-center">
-            <div className="img_navbar">
-              <Image
-                width={24}
-                height={24}
-                src={loupe} />
-            </div>
-            <div className="text-bold ps-2" style={{ fontSize: "14px" }} >
-              Rechercher
-            </div>
-          </div>
-        </div>
-
-        <div id="bloc2" className="d-flex flex-row justify-content-center align-items-center">
-          <div style={{ padding: "0 10px 0 10px" }} className="nav-item d-flex flex-column justify-content-center align-items-center">
-            <div className="img_navbar">
-              <Image
-                width={24}
-                height={24}
-                src={cloche} />
-            </div>
-            <div style={{ fontSize: "12px" }} className="txt_sous_img_navbar">
-              Mes recherches
-            </div>
-          </div>
-          <div className="px-10 nav-item d-flex flex-column justify-content-center align-items-center">
-            <div className="img_navbar">
-              <Image
-                width={24}
-                height={24}
-                src={coeur} />
-            </div>
-            <div style={{ fontSize: "12px" }} className="txt_sous_img_navbar">
-              Favoris
-            </div>
-          </div>
-          <div style={{ padding: "0 10px 0 10px" }} className="nav-item d-flex flex-column justify-content-center align-items-center">
-            <div className="img_navbar">
-              <Image
-                width={24}
-                height={24}
-                src={msg} />
-            </div>
-            <div style={{ fontSize: "12px" }} className="txt_sous_img_navbar">
-              Messages
-            </div>
-          </div>
-          <div style={{ padding: "0 10px 0 10px" }} className="nav-item d-flex flex-column justify-content-center align-items-center">
-            <div className="img_navbar">
-              <Image
-                width={24}
-                height={24}
-                src={perso} />
-            </div>
-            <div style={{ fontSize: "12px" }} className="txt_sous_img_navbar">
-              Se connecter
-            </div>
-          </div>
-        </div>
-      </div>
-
-      </>
-    // </div>
-  );
-}
