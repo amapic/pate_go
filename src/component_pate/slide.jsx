@@ -119,24 +119,24 @@ export function Menu(props) {
                 y1="0"
                 x2="24"
                 y2="24"
-                stroke-width="2"
+                strokeWidth="2"
                 stroke="white"
               />
-              <line className="bar2" x1="0" y1="24" x2="24" y2="0" stroke="white" stroke-width="2" />
+              <line className="bar2" x1="0" y1="24" x2="24" y2="0" stroke="white" strokeWidth="2" />
             </BurgerImageStyle>
           </div>
         </div>
         <div className="d-flex col w-50 m-auto  flex-column align-content-between">
-          <h2 className="row">
+          <h2 className="row mb-5">
             <a href="#">Home</a>
           </h2>
-          <h2 className="row">
+          <h2 className="row mb-5">
             <a href="#">About</a>
           </h2>
-          <h2 className="row">
+          <h2 className="row mb-5">
             <a href="#">Contact</a>
           </h2>
-          <h2 className="row">
+          <h2 className="row mb-5">
             <a href="#">Search</a>
           </h2>
         </div>

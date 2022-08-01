@@ -16,7 +16,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 // import { ThemeProvider } from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
+// import CssBaseline from '@material-ui/core/CssBaseline';
 
 export default function MyApp(props) {
   const { Component, pageProps } = props;
@@ -45,7 +45,7 @@ export default function MyApp(props) {
       </Head>
       {/* <ThemeProvider theme={theme}> */}
       {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-      <CssBaseline />
+      {/* <CssBaseline /> */}
       {typeof window === 'undefined' ? null : <Component {...pageProps} />}
       {/* </ThemeProvider> */}
     </motion.div>
