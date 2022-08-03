@@ -5,22 +5,32 @@ const textePulse = () => keyframes`
 0% {
   /* stroke:transparent; */
   transform: translate(0px, 50px);
-  
-
 }
 
 20% {
-  /* stroke:transparent; */
-  /* transform: translate(50px, 0px); */
-  
 
 }
 
 100%{
     /* stroke:black; */
     // transform: translate(5px, 5px);
-    
-  
+
+}
+`;
+
+const textePulse2 = () => keyframes`
+0% {
+  /* stroke:transparent; */
+  transform: translate(40px, 0px);
+}
+
+20% {
+
+}
+
+100%{
+    /* stroke:black; */
+    // transform: translate(5px, 5px);
 
 }
 `;
@@ -47,11 +57,11 @@ color:#fff;
   font-size: 25px;
   /* right: 0px; */
   right: ${props => (props.selected==1 ? '40px' : '20px')};
-  animation: ${textePulse} 4s alternate infinite;
-  animation-delay: 1s;
+  animation: ${props => (props.selected==1 ? textePulse : textePulse2)} 4s alternate ${props => (props.selected==1 ? "infinite": 1)};
+  animation-delay: 0s;
   font-family:"Gilda Display", serif;
 `;
-
+/* animation: ${props => (props.selected==2 ? ${textePulse} 6s alternate-reverse infinite : 'none')}; */
 const Texte2 = styled.div`
   color:#fff;
   margin: 30px 0px;
@@ -62,7 +72,8 @@ const Texte2 = styled.div`
   /* right: 0px; */
   /* text-decoration-line: underline; */
   right: ${props => (props.selected==2 ? '40px' : '20px')};
-  animation: ${textePulse} 6s alternate-reverse infinite;
+
+  animation:  ${textePulse} 6s alternate-reverse infinite;
   animation-delay: 0.7s;
   font-family:"Gilda Display", serif;
 `;
@@ -100,7 +111,7 @@ const Col2 = styled.div`
 
 
 
-export default function Corps(props) {
+export default function Menu_droit(props) {
 
   const [selected, setSelected] = useState(0);
   function handleClick(id) {

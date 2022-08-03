@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import { Navbar, NavItem } from "../component/navbar/navbar";
+// import { Navbar, NavItem } from "../component/navbar/navbar";
 import Questionnaire from "../component/questionnaire";
 import Recherches_recentes from "../component/recherches_recentes";
 import Carousel from "../component/carousel2";

@@ -95,7 +95,7 @@
     "src/fonction/region_load.js",
     "src/old_pages/detail_dev.js",
     "src/pages/test.jsx"
-  ],
+, "src/component_pate/SafeHydrate.jsx"  ],
   "exclude": [
     "node_modules"
   ]

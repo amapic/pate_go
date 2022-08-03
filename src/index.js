@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM,{ hydrate, render } from 'react-dom';
 // import './index.css';
-import App from './App';
+import Appsfdfh from './App';
 
 // ReactDOM.render(
 // //   <React.StrictMode>
@@ -17,6 +17,6 @@ if (root && root.innerHTML !== "") {
   renderMethod = render
 }
 renderMethod(
-  <App />,
+  <Appsfdhjhhfh />,
   document.getElementById('root')
 );

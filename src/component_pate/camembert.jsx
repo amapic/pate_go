@@ -5,6 +5,7 @@ import {
   useLoader,
   useThree,
   extend,
+  useResource
   // Canvas,
 } from "@react-three/fiber";
 // import ff from "fonts"
@@ -18,6 +19,7 @@ import {
 } from "@react-three/drei";
 import { CameraControls } from "./CameraControls";
 import * as THREE from "three";
+import Radar,{TextAroundRadar,Textt1} from "./Radar";
 
 function Portion(props) {
   const mesh = useRef();
@@ -51,6 +53,8 @@ function Portion(props) {
     if (!props.close) {
       init = false;
     }
+
+    // mesh.geometry.faces[0].color.setHex( 0x00ffff ); 
   }, [props.close]);
 
   useFrame(() => {
@@ -141,6 +145,7 @@ function Portion(props) {
         <cylinderGeometry
           attach="geometry"
           args={[300, 300, 50, 32, , false, props.thetaDebut, props.thetaEnd]}
+          
         />
 
         <meshBasicMaterial transparent color={"black"} opacity={1} />
@@ -181,7 +186,6 @@ export default function Scene(props) {
   var FOV = 45;
   var NEAR = 1;
   var FAR = 120000;
-  // const camera = new THREE.PerspectiveCamera( 60, width / height, 0.01, 1000 );
   var camera = new THREE.PerspectiveCamera(FOV, WIDTH / HEIGHT, NEAR, FAR);
   camera.position.set(POS_X, POS_Y, POS_Z);
   camera.lookAt(new THREE.Vector3(0, 0, 0));
@@ -190,10 +194,15 @@ export default function Scene(props) {
 
   const [reset, setReset] = useState(false);
   const [showText, setShowText] = useState(false);
+  const [u, setu] = useState(0);
   let curve = new THREE.EllipseCurve(0, 0, 10, 5);
 
   const upgradeShowText = (bool) => {
     setShowText(bool);
+  }
+
+  const oonClick = () => {
+    setu(u + 1);
   }
 
 
@@ -212,7 +221,7 @@ export default function Scene(props) {
   return (
     // <>
     <React.StrictMode>
-      {/* <div onClick={oonClick}>AAfgdhdg</div> */}
+      {/* <div style={{color:'white'}} onClick={oonClick}>AAfgdhdg</div> */}
       <Canvas
         camera={camera}
         style={{
@@ -222,14 +231,64 @@ export default function Scene(props) {
           left: "25%",
         }}
       >
-        {/* <primitive position={[0, 0, 0]} object={new THREE.AxesHelper(2000)} /> */}
-        <Portion upgradeShowText={upgradeShowText} thetaDebut={0} thetaEnd={1.7} close={props.close} />
-        <Portion upgradeShowText={upgradeShowText} thetaDebut={1.8} thetaEnd={2.1} close={props.close} />
+        <primitive position={[0, 0, 0]} object={new THREE.AxesHelper(2000)} />
+        {/* <Portion upgradeShowText={upgradeShowText} thetaDebut={0} thetaEnd={1.7} close={props.close} /> */}
+        {/* <Portion upgradeShowText={upgradeShowText} thetaDebut={1.8} thetaEnd={2.1} close={props.close} /> */}
+        <Radar key={u} />
+        <TextAroundRadar />
+        {/* <Textt1 /> */}
         <OrbitControls />
         
-        <Dolly />
+        {/* <Dolly /> */}
+        {/* <Text  rotation={[0,0,0]}  fontSize={50} position={[500,500,0]} color="black" anchorX="center" anchorY="middle">
+          hello world!
+          <meshNormalMaterial color={"white"} />
+        </Text> */}
       </Canvas>
-      <Canvas
+      
+    </React.StrictMode>
+  );
+}
+export const Scene2 = () => {
+  const {
+    camera,
+    gl: { domElement }
+  } = useThree()
+  const [ref, object] = useResource()
+
+  const points = []
+  points.push(new THREE.Vector3(-10, 0, 0))
+  points.push(new THREE.Vector3(0, 10, 0))
+  points.push(new THREE.Vector3(10, 0, 0))
+
+  const lineGeometry = new THREE.BufferGeometry().setFromPoints(points)
+
+  // const positions = new Float32Array(points.length * 2)
+
+  return (
+    <>
+      <group position={[0, -2.5, -10]}>
+        <line ref={ref} geometry={lineGeometry}>
+          <lineBasicMaterial attach="material" color={'#9c88ff'} linewidth={10} linecap={'round'} linejoin={'round'} />
+        </line>
+        {/* <line ref={ref}>
+          <bufferGeometry attach="geometry" setFromPoints={points} />
+          <lineBasicMaterial attach="material" color={'#9c88ff'} linewidth={10} linecap={'round'} linejoin={'round'} />
+        </line> */}
+        {/* <points ref={ref}>
+          <bufferGeometry>
+            <bufferAttribute attachObject={['attributes', 'position']} count={positions.length / 2} array={positions} itemSize={2} />
+          </bufferGeometry>
+          <lineBasicMaterial attach="material" color={0x0000ff} linewidth={3} linecap={'round'} linejoin={'round'} />
+        </points> */}
+      </group>
+      {/* <dragControls args={[[object], camera, domElement]} /> */}
+    </>
+  )
+}
+
+
+{/* <Canvas
       camera={camera2}
       style={{
         width: "50%",
@@ -238,11 +297,9 @@ export default function Scene(props) {
         right: "25%",
       }}
       >
-        <Text visible={showText} rotation={[0,0,0]}  fontSize={100} position={[500,500,0]} color="black" anchorX="center" anchorY="middle">
+        <Text visible={showText} rotation={[0,0,0]}  fontSize={50} position={[500,500,0]} color="black" anchorX="center" anchorY="middle">
           hello world!
           <meshNormalMaterial color={"white"} />
         </Text>
-      </Canvas>
-    </React.StrictMode>
-  );
-}
+        {/* <Dolly /> */}
+      

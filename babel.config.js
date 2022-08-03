@@ -22,15 +22,16 @@ module.exports = function(api){
     ['@babel/preset-env', { targets: { node: 'current' } }],
     '@babel/preset-typescript',
     'next/babel'
+    
   ]
-  // const plugins= [
-  //   ["@babel/plugin-transform-react-jsx"]
-  // ]
+  const plugins= [
+    ['styled-components', { "ssr": true }]
+  ]
 
   api.cache(false);
 
   return {
     presets,
-    // plugins
+    plugins
   };
 }
